@@ -14,13 +14,25 @@ public class TestListener implements ITestListener {
     ScreenshotUtil sc = new ScreenshotUtil();
 
     @Override
+    public void onTestStart(ITestResult  result){
+        try{
+            TestBase test = (TestBase) result.getInstance();
+            WebDriver driver = test.driver;
+            sc.takeScreenshot(driver, "Filename");
+            System.out.println("Test started " + result.getName());
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+
+
     public void onTestSuccess(ITestResult result) {
 
         try {
             TestBase test = (TestBase) result.getInstance();
             WebDriver driver = test.driver;
             sc.takeScreenshot(driver, "Filename");
-            System.out.println("Test Passed" + result.getName());
+            System.out.println("Test Passed " + result.getName());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,7 +43,7 @@ public class TestListener implements ITestListener {
         try {
             TestBase test = (TestBase) result.getInstance();
             WebDriver driver = test.driver;
-            System.out.println("Test Failed" + result.getName());
+            System.out.println("Test Failed " + result.getName());
             sc.takeScreenshot(driver, "Filename");
         } catch (Exception e) {
             e.printStackTrace();

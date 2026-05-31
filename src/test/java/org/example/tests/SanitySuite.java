@@ -21,8 +21,8 @@ public class SanitySuite extends TestBase {
 public void login() throws InterruptedException {
     LoginPage loginPage = new LoginPage(driver);
     HomePage homePage= new HomePage(driver);
-    loginPage.enterUserName("standard_user");
-    loginPage.enterPassword("secret_sauce");
+    loginPage.enterUserName();
+    loginPage.enterPassword();
     loginPage.clickLoginButton1();
     Thread.sleep(5000);
 loginPage.scrollByCordinates();
@@ -33,6 +33,7 @@ loginPage.scrollByCordinates();
     HomePage homePage= new HomePage(driver);
     homePage.clickLastItem();
 }
+
 }
 
 
