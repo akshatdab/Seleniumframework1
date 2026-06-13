@@ -16,6 +16,10 @@ public class ScreenshotUtil {
 //    public ScreenshotUtil(WebDriver driver){
 //        this.driver=driver;
 //    }
+//EXTENTREPORT
+    //ALLURE
+    //SOFTASSERTION
+// config.data(url username password)
 
     public void takeScreenshot(WebDriver driver, String fileName) throws IOException {
         try{
